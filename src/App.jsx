@@ -1,15 +1,35 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import NGO from "./pages/NGO";
 import Volunteer from "./pages/Volunteer";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/ngo" element={<NGO />} />
-      <Route path="/volunteer" element={<Volunteer />} />
-    </Routes>
+    <div className="min-h-screen bg-gray-950 text-white">
+      
+      {/* Navbar */}
+      <nav className="sticky top-0 z-50 bg-gray-900/80 backdrop-blur border-b border-gray-800">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+          <h1 className="text-xl font-semibold tracking-wide">
+            Smart Resource
+          </h1>
+
+          <div className="flex gap-6 text-sm">
+            <Link to="/" className="hover:text-blue-400 transition">Home</Link>
+            <Link to="/ngo" className="hover:text-blue-400 transition">NGO</Link>
+            <Link to="/volunteer" className="hover:text-blue-400 transition">Volunteer</Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="max-w-6xl mx-auto px-6 py-10">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ngo" element={<NGO />} />
+          <Route path="/volunteer" element={<Volunteer />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 
